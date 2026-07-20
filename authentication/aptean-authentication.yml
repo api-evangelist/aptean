@@ -1,0 +1,14 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/aptean-integration-platform-openapi-original.json
+summary:
+  types:
+  - http
+schemes:
+- name: Bearer
+  type: http
+  scheme: bearer
+  description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization: Bearer
+    {token}"'
+  sources:
+  - openapi/aptean-integration-platform-openapi-original.json
