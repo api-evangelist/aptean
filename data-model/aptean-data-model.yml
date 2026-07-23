@@ -1,0 +1,42 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/aptean-integration-platform-openapi-original.json
+entities:
+- name: Producer
+  description: A tenant that publishes events for a product.
+  key: id
+- name: Consumer
+  description: A tenant subscription that receives events from a producer for a product.
+  key: id
+  fields: [producerId, productId, producerProductId, tenantId, subscribedEvents, contactEmail]
+- name: EventDefinition
+  description: The schema/contract for a type of event a product can publish.
+  key: id
+  fields: [name, description, type, productId, productVersion, payloadSchema, settings]
+- name: Event
+  description: A published event instance carrying a payload against an event definition.
+  key: id
+  fields: [payload, correlationId, eventDefinitionId, eventDefinitionType, owner, sourceTenant, sentTimestamp]
+- name: SubscribedEvent
+  description: An event-definition reference within a consumer subscription.
+relationships:
+- from: Consumer
+  to: Producer
+  type: belongs_to
+  via: producerId
+- from: Consumer
+  to: SubscribedEvent
+  type: has_many
+  via: subscribedEvents
+- from: Event
+  to: EventDefinition
+  type: belongs_to
+  via: eventDefinitionId
+- from: SubscribedEvent
+  to: EventDefinition
+  type: belongs_to
+  via: eventDefinitionId
+- from: Producer
+  to: Consumer
+  type: has_many
+  via: producerId

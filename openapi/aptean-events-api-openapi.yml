@@ -1,0 +1,395 @@
+openapi: 3.0.1
+info:
+  title: Aptean Integration Platform Consumers Events API
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Events
+paths:
+  /v1/events:
+    post:
+      tags:
+      - Events
+      summary: Publish event from a specific tenant.
+      parameters:
+      - name: x-aptean-product
+        in: header
+        description: Product ID for authorization.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-tenant
+        in: header
+        description: Tenant ID for authorization.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      requestBody:
+        description: Event to publish with payload.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+  /v1/events/consumer-events/{consumerId}:
+    get:
+      tags:
+      - Events
+      summary: Get published events subscribed to by the specific tenant.
+      parameters:
+      - name: consumerId
+        in: path
+        description: Tenant ID of the consumer.
+        required: true
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        description: Optional start date.
+        schema:
+          type: string
+          format: date-time
+      - name: endDate
+        in: query
+        description: Optional end date.
+        schema:
+          type: string
+          format: date-time
+      - name: x-aptean-tenant
+        in: header
+        description: Tenant ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-product
+        in: header
+        description: Product ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+  /v1/events/{eventId}:
+    get:
+      tags:
+      - Events
+      summary: Get a specific event by its ID.
+      parameters:
+      - name: eventId
+        in: path
+        description: Event ID.
+        required: true
+        schema:
+          type: string
+      - name: x-aptean-tenant
+        in: header
+        description: Tenant ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-product
+        in: header
+        description: Product ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+components:
+  schemas:
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+      additionalProperties: false
+      description: Warning AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
+      type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of errors for executed action.
+          nullable: true
+      additionalProperties: false
+      description: Error AIP response.
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]
+    : type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
+          description: The collection of items.
+          nullable: true
+      additionalProperties: false
+      description: "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Gets or sets the unique identifier.
+          format: uuid
+        createdBy:
+          type: string
+          description: Gets the created by property.
+          nullable: true
+        createdTimestamp:
+          type: string
+          description: Gets or sets timestamp that indicates when this document got created.
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Gets the modified by property.
+          nullable: true
+        modifiedTimestamp:
+          type: string
+          description: Gets or sets timestamp that indicates when this document got last modified.
+          format: date-time
+          nullable: true
+        payload:
+          type: object
+          description: The actual event Payload.
+        correlationId:
+          type: string
+          description: CorrelationId from the processing pipeline.
+          nullable: true
+        eventDefinitionId:
+          type: string
+          description: The event definition id of the event.
+          format: uuid
+        eventDefinitionType:
+          type: string
+          description: The event definition type.
+          nullable: true
+        owner:
+          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner'
+        sourceTenant:
+          type: string
+          description: The source tenant.
+          nullable: true
+        sentTimestamp:
+          type: string
+          description: Indicates when the event was sent.
+          format: date-time
+          nullable: true
+        failedTimestamp:
+          type: string
+          description: Indicates when the event was failed.
+          format: date-time
+          nullable: true
+        failureMessage:
+          type: string
+          description: Shows the failure message of this event.
+          nullable: true
+      additionalProperties: false
+      description: Representation of the Event model.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner:
+      type: object
+      properties:
+        producerId:
+          type: string
+          description: Gets or sets producer id.
+          format: uuid
+      additionalProperties: false
+      description: Representation of the owner model.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest:
+      required:
+      - eventDefinitionType
+      type: object
+      properties:
+        eventDefinitionType:
+          minLength: 1
+          type: string
+          description: Gets or sets the event definition type.
+        payload:
+          type: object
+          description: Gets or sets the payload.
+      additionalProperties: false
+      description: Publish Event Request.
+  securitySchemes:
+    Bearer:
+      type: http
+      description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization: Bearer {token}"'
+      scheme: bearer

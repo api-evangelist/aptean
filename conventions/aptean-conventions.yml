@@ -1,0 +1,55 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/aptean-integration-platform-openapi-original.json
+docs: https://github.com/Aptean/integration-services
+summary: >-
+  Cross-cutting request/response semantics for the Aptean Integration Platform
+  (AIP) API, derived from the published OpenAPI and the integration-services
+  reference documentation.
+authentication:
+  style: bearer-jwt
+  scheme: Authorization Bearer {JWT}
+  additional_headers:
+  - name: X-APTEAN-TENANT
+    description: Tenant identifier the call operates within.
+  - name: X-APTEAN-APIM
+    description: Aptean API Management subscription key.
+  - name: X-APTEAN-PRODUCT
+    description: Product identifier the producer/consumer belongs to.
+  - name: X-APTEAN-USER
+    description: User identifier on whose behalf the call is made.
+  see: authentication/aptean-authentication.yml
+request_tracing:
+  header: X-APTEAN-CORRELATION-ID
+  description: >-
+    Correlation ID supplied by the caller to group a published event with its
+    consumer processing logs across the platform.
+versioning:
+  style: uri-path
+  current: v1
+  example: /v1/events
+  see: lifecycle/aptean-lifecycle.yml
+pagination:
+  style: none
+  note: >-
+    Collection endpoints filter by query parameters (productId, producerId,
+    startDate, endDate) rather than cursor/offset pagination.
+idempotency:
+  supported: false
+  note: No documented idempotency-key header or parameter in the current spec.
+error_envelope:
+  schema: AipErrorResponse
+  format: rfc7807
+  fields:
+  - errors
+  - warnings
+  see: errors/aptean-problem-types.yml
+rate_limiting:
+  documented: false
+webhooks:
+  supported: true
+  note: >-
+    Consumers receive published events by webhook delivery to a registered
+    inbox endpoint; payload signatures are validated against public keys from
+    GET /v1/public-keys.
+  see: asyncapi/aptean-events-webhooks.yml

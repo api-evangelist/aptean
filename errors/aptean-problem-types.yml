@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/aptean-integration-platform-openapi-original.json
+format: rfc7807
+envelope:
+  schema: AipErrorResponse
+  description: >-
+    Errors and warnings are returned in an AipErrorResponse envelope with two
+    arrays, `errors[]` and `warnings[]`, each item conforming to
+    Microsoft.AspNetCore.Mvc.ProblemDetails (RFC 7807 problem+json shape:
+    type, title, status, detail, instance).
+  fields:
+  - errors
+  - warnings
+problems:
+- status: 400
+  title: Bad Request
+  detail: The request was malformed or failed validation.
+  source_operations:
+  - GET /v1/consumers
+  - POST /v1/consumers
+  - POST /v1/event-definitions
+  - POST /v1/events
+- status: 401
+  title: Unauthorized
+  detail: Missing or invalid Bearer JWT, or missing tenant/product/APIM headers.
+  source_operations:
+  - GET /v1/consumers
+  - GET /v1/event-definitions
+  - POST /v1/events
+- status: 404
+  title: Not Found
+  detail: The requested consumer, producer, event, or event-definition does not exist.
+  source_operations:
+  - GET /v1/consumers/{id}
+  - GET /v1/events/{eventId}
+  - PUT /v1/event-definitions/{id}
+- status: 500
+  title: Internal Server Error
+  detail: An unexpected error occurred while processing the request.
+  source_operations:
+  - POST /v1/events
+  - POST /v1/event-definitions

@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/Aptean/integration-services
+summary: >-
+  The Aptean Integration Platform (AIP) publishes a staging environment used
+  for integration development and a sample consumer webhook receiver. No public
+  self-service test credentials, cards, or magic identifiers are published;
+  access requires an AIP subscription (tenant, product, and APIM key).
+environments:
+- name: staging
+  api_base: https://stg.integration-graph.apteansharedservices.com
+  swagger: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  description: Staging Integration Graph API for development and testing.
+- name: consumer-sample
+  base: https://stg.integration-consumer.apteansharedservices.com
+  inbox: https://stg.integration-consumer.apteansharedservices.com/inbox
+  description: Sample consumer webhook receiver endpoint used to test event delivery.
+tooling:
+- type: postman
+  description: >-
+    Postman collection and environment JSON provided in the integration-services
+    repository with sample requests for event definitions, publish events, and
+    event logs.
+  source: https://github.com/Aptean/integration-services
+- type: signature-verifier
+  description: >-
+    C# SignatureVerifier sample (with sampleevent.json) demonstrating validation
+    of webhook payload signatures against AIP public keys.
+  source: https://github.com/Aptean/integration-services/tree/main/SignatureVerifier
+credentials_required:
+- X-APTEAN-TENANT
+- X-APTEAN-APIM
+- X-APTEAN-PRODUCT
+- Authorization (Bearer JWT)

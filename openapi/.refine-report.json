@@ -1,0 +1,22 @@
+{
+  "provider": "aptean",
+  "sources": [
+    "aptean-consumers-api-openapi.yml",
+    "aptean-eventdefinitions-api-openapi.yml",
+    "aptean-events-api-openapi.yml",
+    "aptean-producers-api-openapi.yml",
+    "aptean-publickeys-api-openapi.yml"
+  ],
+  "outputs": [
+    "aptean-consumers-api-openapi.yml",
+    "aptean-eventdefinitions-api-openapi.yml",
+    "aptean-events-api-openapi.yml",
+    "aptean-producers-api-openapi.yml",
+    "aptean-publickeys-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

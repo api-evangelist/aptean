@@ -1,0 +1,599 @@
+openapi: 3.0.1
+info:
+  title: Aptean Integration Platform Consumers API
+  version: '1.0'
+security:
+- Bearer: []
+tags:
+- name: Consumers
+paths:
+  /v1/consumers:
+    get:
+      tags:
+      - Consumers
+      summary: Gets all consumers tenants for the producer tenant.
+      parameters:
+      - name: producerId
+        in: query
+        description: Producer tenant ID.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-tenant
+        in: header
+        description: Tenant ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-product
+        in: header
+        description: Product ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+    post:
+      tags:
+      - Consumers
+      summary: Create new consumer subscription for specific event type.
+      parameters:
+      - name: x-aptean-product
+        in: header
+        description: Product ID of consumer tenant for authorization.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-tenant
+        in: header
+        description: Tenant ID of consumer for authorization.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-user
+        in: header
+        description: User making the call if any.
+        schema:
+          type: string
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      requestBody:
+        description: New consumer request.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+  /v1/consumers/{id}:
+    get:
+      tags:
+      - Consumers
+      summary: Get a speific consumer subscription detail by ID.
+      operationId: GetConsumerById
+      parameters:
+      - name: id
+        in: path
+        description: ID of consumer subscription.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-tenant
+        in: header
+        description: Tenant ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-product
+        in: header
+        description: Product ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+    delete:
+      tags:
+      - Consumers
+      summary: Deletes a consumer.
+      parameters:
+      - name: x-aptean-tenant
+        in: header
+        description: TenantId from request header.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-user
+        in: header
+        description: User making the call if any.
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: ID of the consumer.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-product
+        in: header
+        description: Product ID for authorization.
+        schema:
+          type: string
+          format: uuid
+      - name: x-aptean-apim
+        in: header
+        description: API key for authorization.
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Accepted
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+components:
+  schemas:
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Base.ProvisioningStatus:
+      enum:
+      - pending
+      - active
+      - failed
+      - pendingRemoval
+      - removalFailed
+      - removed
+      type: string
+      description: Indicates the status of provisioning.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest:
+      required:
+      - contactEmail
+      - subscribedEvents
+      type: object
+      properties:
+        producerId:
+          type: string
+          description: Gets or sets the producer id.
+          format: uuid
+          nullable: true
+        productIdProducer:
+          type: string
+          description: Gets or sets the producer's product id.
+          format: uuid
+          nullable: true
+        sourceTenant:
+          type: string
+          description: Gets or sets the source tenant.
+          nullable: true
+        subscribedEvents:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent'
+          description: Gets or sets the subscribed events list.
+        contactEmail:
+          minLength: 5
+          pattern: ^[a-zA-Z0-9_\.-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}$
+          type: string
+          description: Gets or sets the contact email.
+      additionalProperties: false
+      description: New consumer request.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+      additionalProperties: false
+      description: Warning AIP response.
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]
+    : type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
+          description: The collection of items.
+          nullable: true
+      additionalProperties: false
+      description: "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
+      type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of errors for executed action.
+          nullable: true
+      additionalProperties: false
+      description: Error AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult'
+        info:
+          type: string
+          description: Provides info about the delete action.
+          nullable: true
+      additionalProperties: false
+      description: Resource to describe the delete action.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
+      enum:
+      - success
+      - error
+      type: string
+      description: Describes the global result.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent:
+      required:
+      - attempts
+      - eventDefinitionType
+      - ttl
+      - webhook
+      type: object
+      properties:
+        eventDefinitionType:
+          minLength: 1
+          type: string
+          description: Gets or sets event definition type.
+        webhook:
+          pattern: ^https:\/\/[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$
+          type: string($uri)
+          description: Gets or sets webhook URL.
+          example: https://localhost
+        ttl:
+          type: string
+          description: "Gets or sets time-to-live value.\r\n(min value: 0.00:01:00, max value: 1.00:00:00).\r\nThe value will be rounded to the nearest minute."
+          format: duration
+          example: 0.00:00:00
+        attempts:
+          maximum: 30
+          minimum: 1
+          type: integer
+          description: Gets or sets attempts count.
+          format: int32
+        status:
+          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Base.ProvisioningStatus'
+        statusReason:
+          type: string
+          description: Status reason of provisioning.
+          nullable: true
+      additionalProperties: false
+      description: Resource that represents subscribed event.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer:
+      required:
+      - subscribedEvents
+      type: object
+      properties:
+        id:
+          type: string
+          description: Gets or sets the unique identifier.
+          format: uuid
+        createdBy:
+          type: string
+          description: Gets the created by property.
+          nullable: true
+        createdTimestamp:
+          type: string
+          description: Gets or sets timestamp that indicates when this document got created.
+          format: date-time
+        modifiedBy:
+          type: string
+          description: Gets the modified by property.
+          nullable: true
+        modifiedTimestamp:
+          type: string
+          description: Gets or sets timestamp that indicates when this document got last modified.
+          format: date-time
+          nullable: true
+        producerId:
+          type: string
+          description: Gets or sets producer ID.
+          format: uuid
+          nullable: true
+        productId:
+          type: string
+          description: ProductId where the consumer gets notifications from.
+          format: uuid
+          nullable: true
+        producerProductId:
+          type: string
+          description: In case of multi-tenant consumer, this is the product where the consumer gets notifications from.
+          format: uuid
+          nullable: true
+        tenantId:
+          type: string
+          description: TenantId owning this consumer.
+          format: uuid
+        sourceTenant:
+          type: string
+          description: Source tenant of this consumer.
+          nullable: true
+        subscribedEvents:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent'
+          description: Gets or sets list of subscribed events.
+        contactEmail:
+          type: string
+          description: Gets or sets the contact email.
+          nullable: true
+      additionalProperties: false
+      description: Resource that represents a consumer.
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]
+    : type: object
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer'
+          description: The collection of items.
+          nullable: true
+      additionalProperties: false
+      description: "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+  securitySchemes:
+    Bearer:
+      type: http
+      description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization: Bearer {token}"'
+      scheme: bearer

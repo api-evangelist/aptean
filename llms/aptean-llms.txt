@@ -1,0 +1,28 @@
+# Aptean
+
+> Aptean is a global provider of industry-specific, AI-powered enterprise software (ERP, CRM, and supply chain) for manufacturing, distribution, food & beverage, and other complex industries. Its developer-facing surface is the Aptean Integration Platform (AIP) — an event/webhook platform that lets products publish events and lets consumer tenants subscribe and receive them.
+
+## APIs
+
+- [Aptean Integration Platform API](https://stg.integration-graph.apteansharedservices.com/swagger/index.html): Event-driven integration API — producers, consumers, event definitions, events, and public keys. Bearer JWT + APIM subscription headers.
+
+## Specs
+
+- [OpenAPI (harvested)](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/openapi/aptean-integration-platform-openapi-original.json): OpenAPI 3.0.1, 14 operations.
+- [Webhook / event surface](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/asyncapi/aptean-events-webhooks.yml)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/authentication/aptean-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/conventions/aptean-conventions.yml)
+- [Error / problem types](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/errors/aptean-problem-types.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/data-model/aptean-data-model.yml)
+
+## Docs
+
+- [Integration Services (reference docs + samples)](https://github.com/Aptean/integration-services)
+- [Aptean GitHub organization](https://github.com/Aptean)
+- [Company site](https://www.aptean.com/en-US/)
+- [Trust Center](https://trust.aptean.com/)
+
+## Agent Skills
+
+- [Publish an event](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/skills/aptean-publish-event.md)
+- [Subscribe a consumer and receive events by webhook](https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/skills/aptean-subscribe-consumer.md)

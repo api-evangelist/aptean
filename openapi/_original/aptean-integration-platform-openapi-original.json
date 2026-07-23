@@ -1,0 +1,2607 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Aptean Integration Platform API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/v1/consumers": {
+      "get": {
+        "tags": [
+          "Consumers"
+        ],
+        "summary": "Gets all consumers tenants for the producer tenant.",
+        "parameters": [
+          {
+            "name": "producerId",
+            "in": "query",
+            "description": "Producer tenant ID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Consumers"
+        ],
+        "summary": "Create new consumer subscription for specific event type.",
+        "parameters": [
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID of consumer tenant for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID of consumer for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-user",
+            "in": "header",
+            "description": "User making the call if any.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "New consumer request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/consumers/{id}": {
+      "get": {
+        "tags": [
+          "Consumers"
+        ],
+        "summary": "Get a speific consumer subscription detail by ID.",
+        "operationId": "GetConsumerById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of consumer subscription.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Consumers"
+        ],
+        "summary": "Deletes a consumer.",
+        "parameters": [
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "TenantId from request header.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-user",
+            "in": "header",
+            "description": "User making the call if any.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the consumer.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/event-definitions": {
+      "post": {
+        "tags": [
+          "EventDefinitions"
+        ],
+        "summary": "Creates new event definition(s).",
+        "parameters": [
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-user",
+            "in": "header",
+            "description": "User making the call if any.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Event definitions to create.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewEventDefinitionsRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewEventDefinitionsRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewEventDefinitionsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "EventDefinitions"
+        ],
+        "summary": "Returns a collection of event definitions assigned to a particular product.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "The productId.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/event-definitions/{id}": {
+      "put": {
+        "tags": [
+          "EventDefinitions"
+        ],
+        "summary": "Updates an existing event definition.",
+        "parameters": [
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-user",
+            "in": "header",
+            "description": "User making the call if any.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the event definition.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Existing event definition request model.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.UpdateEventDefinitionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.UpdateEventDefinitionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.UpdateEventDefinitionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/events": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Publish event from a specific tenant.",
+        "parameters": [
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Event to publish with payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/events/consumer-events/{consumerId}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get published events subscribed to by the specific tenant.",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "description": "Tenant ID of the consumer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Optional start date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Optional end date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/events/{eventId}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get a specific event by its ID.",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "Event ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/producers": {
+      "post": {
+        "tags": [
+          "Producers"
+        ],
+        "summary": "Create a new producer - only for internal use.",
+        "parameters": [
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-user",
+            "in": "header",
+            "description": "User making the call if any.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "New producer request model.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Producers"
+        ],
+        "summary": "Returns a list of producer tenants for a product.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "Product ID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/producers/{id}": {
+      "delete": {
+        "tags": [
+          "Producers"
+        ],
+        "summary": "Deletes a producer if there are no consumers listening to that producer.",
+        "parameters": [
+          {
+            "name": "x-aptean-tenant",
+            "in": "header",
+            "description": "Tenant ID for authorization.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-user",
+            "in": "header",
+            "description": "User making the call if any.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the producer to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-product",
+            "in": "header",
+            "description": "Product ID for authorization.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "x-aptean-apim",
+            "in": "header",
+            "description": "API key for authorization.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/public-keys": {
+      "get": {
+        "tags": [
+          "PublicKeys"
+        ],
+        "summary": "Gets primary and secondary public keys to validate payload signature if required.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[System.String]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[System.String]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[System.String]"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner": {
+        "type": "object",
+        "properties": {
+          "producerId": {
+            "type": "string",
+            "description": "Gets or sets producer id.",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Representation of the owner model."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Base.ProvisioningStatus": {
+        "enum": [
+          "pending",
+          "active",
+          "failed",
+          "pendingRemoval",
+          "removalFailed",
+          "removed"
+        ],
+        "type": "string",
+        "description": "Indicates the status of provisioning."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer": {
+        "required": [
+          "subscribedEvents"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier.",
+            "format": "uuid"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Gets the created by property.",
+            "nullable": true
+          },
+          "createdTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got created.",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Gets the modified by property.",
+            "nullable": true
+          },
+          "modifiedTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got last modified.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "producerId": {
+            "type": "string",
+            "description": "Gets or sets producer ID.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "description": "ProductId where the consumer gets notifications from.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "producerProductId": {
+            "type": "string",
+            "description": "In case of multi-tenant consumer, this is the product where the consumer gets notifications from.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "tenantId": {
+            "type": "string",
+            "description": "TenantId owning this consumer.",
+            "format": "uuid"
+          },
+          "sourceTenant": {
+            "type": "string",
+            "description": "Source tenant of this consumer.",
+            "nullable": true
+          },
+          "subscribedEvents": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent"
+            },
+            "description": "Gets or sets list of subscribed events."
+          },
+          "contactEmail": {
+            "type": "string",
+            "description": "Gets or sets the contact email.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Resource that represents a consumer."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Event": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier.",
+            "format": "uuid"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Gets the created by property.",
+            "nullable": true
+          },
+          "createdTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got created.",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Gets the modified by property.",
+            "nullable": true
+          },
+          "modifiedTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got last modified.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "payload": {
+            "type": "object",
+            "description": "The actual event Payload."
+          },
+          "correlationId": {
+            "type": "string",
+            "description": "CorrelationId from the processing pipeline.",
+            "nullable": true
+          },
+          "eventDefinitionId": {
+            "type": "string",
+            "description": "The event definition id of the event.",
+            "format": "uuid"
+          },
+          "eventDefinitionType": {
+            "type": "string",
+            "description": "The event definition type.",
+            "nullable": true
+          },
+          "owner": {
+            "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner"
+          },
+          "sourceTenant": {
+            "type": "string",
+            "description": "The source tenant.",
+            "nullable": true
+          },
+          "sentTimestamp": {
+            "type": "string",
+            "description": "Indicates when the event was sent.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "failedTimestamp": {
+            "type": "string",
+            "description": "Indicates when the event was failed.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "failureMessage": {
+            "type": "string",
+            "description": "Shows the failure message of this event.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Representation of the Event model."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier.",
+            "format": "uuid"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Gets the created by property.",
+            "nullable": true
+          },
+          "createdTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got created.",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Gets the modified by property.",
+            "nullable": true
+          },
+          "modifiedTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got last modified.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Gets or sets human readable name for the event.",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Gets or sets what the event is representing, and when it's raised.",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Gets or sets the technical definition to identify the type of the event.",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "description": "The productId to which this event is assigned to.",
+            "format": "uuid"
+          },
+          "productVersion": {
+            "type": "string",
+            "description": "Product version.",
+            "nullable": true
+          },
+          "payloadSchema": {
+            "type": "object",
+            "description": "Gets or sets the JSON schemas for the event. This schema will be validated against the event which is published. If the published event doesn't match the schema, the event will be rejected."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Representation of the Event definition."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings": {
+        "required": [
+          "retryable"
+        ],
+        "type": "object",
+        "properties": {
+          "timeToLive": {
+            "type": "string",
+            "description": "Gets or sets ttl for the event.",
+            "format": "duration",
+            "example": "0.00:00:00"
+          },
+          "retryable": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether an event is retryable."
+          }
+        },
+        "additionalProperties": false,
+        "description": "EventDefinitionSettings Specification to create."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult"
+          },
+          "info": {
+            "type": "string",
+            "description": "Provides info about the delete action.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Resource to describe the delete action."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult": {
+        "enum": [
+          "success",
+          "error"
+        ],
+        "type": "string",
+        "description": "Describes the global result."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Producer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier.",
+            "format": "uuid"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Gets the created by property.",
+            "nullable": true
+          },
+          "createdTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got created.",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Gets the modified by property.",
+            "nullable": true
+          },
+          "modifiedTimestamp": {
+            "type": "string",
+            "description": "Gets or sets timestamp that indicates when this document got last modified.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the producer.",
+            "nullable": true
+          },
+          "sourceTenant": {
+            "type": "string",
+            "description": "Source tenant of this producer.",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "description": "Product id value.",
+            "format": "uuid"
+          },
+          "productVersion": {
+            "type": "string",
+            "description": "Product version value.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Resource that represents model to work with a producer."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.EventDefinitionRequest": {
+        "required": [
+          "name",
+          "settings",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Name of the event."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the event.",
+            "nullable": true
+          },
+          "type": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9-]*$",
+            "type": "string",
+            "description": "Event Type which is unique in the system.\r\n<example>erp-salesorder-created</example>"
+          },
+          "payloadSchema": {
+            "type": "object",
+            "description": "Schema of the data to publish in JSON format.\r\n<remarks>When data is published it is validated against this schema.</remarks>"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "EventDefinition Specification to create."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewConsumerRequest": {
+        "required": [
+          "contactEmail",
+          "subscribedEvents"
+        ],
+        "type": "object",
+        "properties": {
+          "producerId": {
+            "type": "string",
+            "description": "Gets or sets the producer id.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "productIdProducer": {
+            "type": "string",
+            "description": "Gets or sets the producer's product id.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "sourceTenant": {
+            "type": "string",
+            "description": "Gets or sets the source tenant.",
+            "nullable": true
+          },
+          "subscribedEvents": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent"
+            },
+            "description": "Gets or sets the subscribed events list."
+          },
+          "contactEmail": {
+            "minLength": 5,
+            "pattern": "^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$",
+            "type": "string",
+            "description": "Gets or sets the contact email."
+          }
+        },
+        "additionalProperties": false,
+        "description": "New consumer request."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewEventDefinitionsRequest": {
+        "required": [
+          "eventDefinitions",
+          "productId"
+        ],
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "description": "Gets the product id.",
+            "format": "uuid"
+          },
+          "productVersion": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Product version.",
+            "nullable": true
+          },
+          "eventDefinitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.EventDefinitionRequest"
+            },
+            "description": "The event definitions to register."
+          }
+        },
+        "additionalProperties": false,
+        "description": "New event definition request."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets the name value."
+          },
+          "sourceTenant": {
+            "type": "string",
+            "description": "Gets the source tenant.",
+            "nullable": true
+          },
+          "productVersion": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Product version value.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "New producer request."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest": {
+        "required": [
+          "eventDefinitionType"
+        ],
+        "type": "object",
+        "properties": {
+          "eventDefinitionType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the event definition type."
+          },
+          "payload": {
+            "type": "object",
+            "description": "Gets or sets the payload."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Publish Event Request."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.UpdateEventDefinitionRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets the name."
+          },
+          "description": {
+            "type": "string",
+            "description": "Gets the description.",
+            "nullable": true
+          },
+          "payloadSchema": {
+            "type": "object",
+            "description": "Gets the payload schema."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Update event definition request."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of errors for executed action.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Error AIP response."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer]": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer"
+            },
+            "description": "The collection of items.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition]": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition"
+            },
+            "description": "The collection of items.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Event"
+            },
+            "description": "The collection of items.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse"
+            },
+            "description": "The collection of items.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Producer"
+            },
+            "description": "The collection of items.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[System.String]": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The collection of items.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse": {
+        "type": "object",
+        "properties": {
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+            },
+            "description": "Gets or sets the collection of warnings for executed action.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Warning AIP response."
+      },
+      "Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent": {
+        "required": [
+          "attempts",
+          "eventDefinitionType",
+          "ttl",
+          "webhook"
+        ],
+        "type": "object",
+        "properties": {
+          "eventDefinitionType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets event definition type."
+          },
+          "webhook": {
+            "pattern": "^https:\\/\\/[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$",
+            "type": "string($uri)",
+            "description": "Gets or sets webhook URL.",
+            "example": "https://localhost"
+          },
+          "ttl": {
+            "type": "string",
+            "description": "Gets or sets time-to-live value.\r\n(min value: 0.00:01:00, max value: 1.00:00:00).\r\nThe value will be rounded to the nearest minute.",
+            "format": "duration",
+            "example": "0.00:00:00"
+          },
+          "attempts": {
+            "maximum": 30,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Gets or sets attempts count.",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Base.ProvisioningStatus"
+          },
+          "statusReason": {
+            "type": "string",
+            "description": "Status reason of provisioning.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Resource that represents subscribed event."
+      },
+      "Microsoft.AspNetCore.Mvc.ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

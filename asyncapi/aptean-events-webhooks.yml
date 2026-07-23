@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+spec_type: Webhooks
+source: https://github.com/Aptean/integration-services
+summary: >-
+  The Aptean Integration Platform (AIP) is an event/webhook platform. Producers
+  publish events (POST /v1/events) against event definitions; consumers register
+  a subscription and receive matching events by webhook delivery to their inbox
+  endpoint. No provider-published AsyncAPI document was found, so the webhook
+  delivery surface is captured here.
+delivery:
+  style: webhook
+  transport: https-post
+  consumer_inbox_example: https://stg.integration-consumer.apteansharedservices.com/inbox
+  registration: POST /v1/consumers (subscribe to event definitions)
+  payload_shape: >-
+    Event resource (id, payload, correlationId, eventDefinitionId,
+    eventDefinitionType, owner, sourceTenant, sentTimestamp).
+security:
+  signature: true
+  description: >-
+    Webhook payloads are signed; consumers validate the signature against the
+    platform public keys retrieved from GET /v1/public-keys. A C#
+    SignatureVerifier reference implementation is provided.
+  public_keys_operation: GET /v1/public-keys
+events:
+  model: tenant-defined
+  note: >-
+    Concrete event types are defined per product/tenant via event definitions
+    (POST /v1/event-definitions), each carrying its own payloadSchema, rather
+    than a fixed provider-wide catalog.

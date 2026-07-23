@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/aptean-integration-platform-openapi-original.json
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://github.com/Aptean/integration-services
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation/sunset policy found for the AIP API.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

@@ -1,0 +1,19 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/aptean-integration-platform-openapi-original.json
+skills:
+- file: aptean-publish-event.md
+  name: Publish an event on the Aptean Integration Platform
+  api: openapi/aptean-integration-platform-openapi-original.json
+  operations:
+  - POST /v1/event-definitions
+  - POST /v1/events
+  - GET /v1/events/{eventId}
+- file: aptean-subscribe-consumer.md
+  name: Subscribe a consumer and receive Aptean events by webhook
+  api: openapi/aptean-integration-platform-openapi-original.json
+  operations:
+  - GET /v1/producers
+  - POST /v1/consumers
+  - GetConsumerById
+  - GET /v1/public-keys

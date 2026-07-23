@@ -1,8 +1,15 @@
 aid: aptean
 name: Aptean
-description: 'Aptean is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. Sector: manufacturing. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Aptean is a global provider of industry-specific, AI-powered enterprise
+  software — ERP, CRM, supply chain and compliance solutions — for manufacturing,
+  distribution, food & beverage, transportation and other complex industries.
+  Headquartered in Alpharetta, Georgia and backed by Insight Partners, Aptean
+  serves roughly 5,000 customers worldwide. Its developer-facing surface is the
+  Aptean Integration Platform (AIP), an event/webhook integration API where
+  products publish events against event definitions and consumer tenants
+  subscribe to receive them, secured with Bearer JWT and APIM subscription
+  headers.
 url: https://raw.githubusercontent.com/api-evangelist/aptean/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,18 +17,162 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://images.ctfassets.net/grb5fvwhwnyo/6dl4ftg2p3o3438k9XcowL/feecf05daaad11081daa4b57173423a8/Default-og-image.webp
 tags:
 - Company
 - Manufacturing
-apis: []
+- ERP
+- Supply Chain
+- Integration
+- Event-Driven
+- Webhooks
+- Enterprise Software
+apis:
+- aid: aptean:aptean-consumers-api
+  name: Aptean Consumers API
+  description: The Consumers API from Aptean — 2 operation(s) for consumers.
+  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  baseURL: https://stg.integration-graph.apteansharedservices.com
+  tags:
+  - Consumers
+  properties:
+  - type: OpenAPI
+    url: openapi/aptean-consumers-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/aptean-events-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/aptean-problem-types.yml
+  - type: DataModel
+    url: data-model/aptean-data-model.yml
+- aid: aptean:aptean-eventdefinitions-api
+  name: Aptean EventDefinitions API
+  description: The EventDefinitions API from Aptean — 2 operation(s) for eventdefinitions.
+  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  baseURL: https://stg.integration-graph.apteansharedservices.com
+  tags:
+  - EventDefinitions
+  properties:
+  - type: OpenAPI
+    url: openapi/aptean-eventdefinitions-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/aptean-events-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/aptean-problem-types.yml
+  - type: DataModel
+    url: data-model/aptean-data-model.yml
+- aid: aptean:aptean-events-api
+  name: Aptean Events API
+  description: The Events API from Aptean — 3 operation(s) for events.
+  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  baseURL: https://stg.integration-graph.apteansharedservices.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/aptean-events-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/aptean-events-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/aptean-problem-types.yml
+  - type: DataModel
+    url: data-model/aptean-data-model.yml
+- aid: aptean:aptean-producers-api
+  name: Aptean Producers API
+  description: The Producers API from Aptean — 2 operation(s) for producers.
+  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  baseURL: https://stg.integration-graph.apteansharedservices.com
+  tags:
+  - Producers
+  properties:
+  - type: OpenAPI
+    url: openapi/aptean-producers-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/aptean-events-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/aptean-problem-types.yml
+  - type: DataModel
+    url: data-model/aptean-data-model.yml
+- aid: aptean:aptean-publickeys-api
+  name: Aptean PublicKeys API
+  description: The PublicKeys API from Aptean — 1 operation(s) for publickeys.
+  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  baseURL: https://stg.integration-graph.apteansharedservices.com
+  tags:
+  - PublicKeys
+  properties:
+  - type: OpenAPI
+    url: openapi/aptean-publickeys-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/aptean-events-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/aptean-problem-types.yml
+  - type: DataModel
+    url: data-model/aptean-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/aptean-agentic-access.yml
+- type: Authentication
+  url: authentication/aptean-authentication.yml
+- type: DomainSecurity
+  url: security/aptean-domain-security.yml
+- type: Conventions
+  url: conventions/aptean-conventions.yml
+- type: Lifecycle
+  url: lifecycle/aptean-lifecycle.yml
+- type: Conformance
+  url: conformance/aptean-conformance.yml
+- type: Compliance
+  url: https://trust.aptean.com/
+- type: TrustCenter
+  url: security/aptean-trust-center.yml
+- type: Webhooks
+  url: asyncapi/aptean-events-webhooks.yml
+- type: MCPServer
+  url: mcp/aptean-mcp.yml
+- type: LLMsTxt
+  url: llms/aptean-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Sandbox
+  url: sandbox/aptean-sandbox.yml
+- type: Documentation
+  url: https://github.com/Aptean/integration-services
+- type: APIReference
+  url: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+- type: GitHubOrganization
+  url: https://github.com/Aptean
+- type: Blog
+  url: https://www.aptean.com/en-US/insights
+- type: Support
+  url: https://www.aptean.com/en-US/contact-us
+- type: TermsOfService
+  url: https://www.aptean.com/en-US/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.aptean.com/en-US/privacy-statement
 - type: Website
   url: https://www.aptean.com/en-US/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

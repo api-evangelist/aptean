@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Aptean Integration Platform API
+  version: 1.0.0
+extends: openapi/aptean-integration-platform-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: aptean
+    x-apievangelist-product: Aptean Integration Platform (AIP)
+    x-apievangelist-category:
+    - integration
+    - event-driven
+    - webhooks
+    x-apievangelist-auth: bearer-jwt + APIM subscription headers
+- target: $.info
+  update:
+    x-apievangelist-conventions: conventions/aptean-conventions.yml
+    x-apievangelist-errors: errors/aptean-problem-types.yml
+    x-apievangelist-webhooks: asyncapi/aptean-events-webhooks.yml
+    x-apievangelist-data-model: data-model/aptean-data-model.yml
+- target: $.servers
+  update:
+  - url: https://stg.integration-graph.apteansharedservices.com
+    description: Staging Integration Graph API (as documented in integration-services).

@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+hosts:
+- host: https://www.aptean.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/api-catalog
+    status: 301
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://stg.integration-graph.apteansharedservices.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+result: none
+note: >-
+  No .well-known discovery documents were served (200) on the corporate site or
+  the AIP staging API host. Absence recorded; no WellKnown/SecurityTxt pointer
+  emitted.

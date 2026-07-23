@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/aptean-integration-platform-openapi-original.json
+note: >-
+  No official hosted/remote MCP server was found for Aptean. The tool list
+  below is a candidate derived one-to-one from the AIP OpenAPI operations.
+server:
+  name: aptean-integration-platform
+  transport: http
+tools:
+- name: list_consumers
+  description: Get all consumer tenants for the producer tenant.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/consumers
+- name: create_consumer
+  description: Create a new consumer subscription for a specific event type.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#POST /v1/consumers
+- name: get_consumer_by_id
+  description: Get a specific consumer subscription detail by ID.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GetConsumerById
+- name: delete_consumer
+  description: Delete a consumer.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#DELETE /v1/consumers/{id}
+- name: create_event_definitions
+  description: Create new event definition(s).
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#POST /v1/event-definitions
+- name: list_event_definitions
+  description: Return event definitions assigned to a particular product.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/event-definitions
+- name: update_event_definition
+  description: Update an existing event definition.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#PUT /v1/event-definitions/{id}
+- name: publish_event
+  description: Publish an event from a specific tenant.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#POST /v1/events
+- name: list_consumer_events
+  description: Get published events subscribed to by a specific tenant.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/events/consumer-events/{consumerId}
+- name: get_event
+  description: Get a specific event by its ID.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/events/{eventId}
+- name: list_producers
+  description: Return producer tenants for a product.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/producers
+- name: delete_producer
+  description: Delete a producer if no consumers are listening.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#DELETE /v1/producers/{id}
+- name: get_public_keys
+  description: Get primary and secondary public keys to validate payload signatures.
+  source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/public-keys
