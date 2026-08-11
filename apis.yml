@@ -129,6 +129,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/aptean-integration-platform-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/aptean-agentic-access.yml
 - type: Authentication
