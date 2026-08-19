@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aptean Integration Platform Consumers Producers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Producers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of producer tenants for a product.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/producers",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "productId",
+                "value": "",
+                "type": "query",
+                "description": "Product ID."
+              }
+            ]
+          },
+          "docs": "Returns a list of producer tenants for a product."
+        },
+        {
+          "info": {
+            "name": "Create a new producer - only for internal use.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/producers",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-user",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new producer - only for internal use."
+        },
+        {
+          "info": {
+            "name": "Deletes a producer if there are no consumers listening to that producer.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/producers/:id",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-user",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the producer to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a producer if there are no consumers listening to that producer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

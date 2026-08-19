@@ -2,9 +2,8 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/aptean-integration-platform-openapi-original.json
-note: >-
-  No official hosted/remote MCP server was found for Aptean. The tool list
-  below is a candidate derived one-to-one from the AIP OpenAPI operations.
+note: No official hosted/remote MCP server was found for Aptean. The tool list below is a candidate derived
+  one-to-one from the AIP OpenAPI operations.
 server:
   name: aptean-integration-platform
   transport: http
@@ -48,3 +47,9 @@ tools:
 - name: get_public_keys
   description: Get primary and secondary public keys to validate payload signatures.
   source_operation: openapi/aptean-integration-platform-openapi-original.json#GET /v1/public-keys
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aptean Integration Platform Consumers EventDefinitions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EventDefinitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a collection of event definitions assigned to a particular product.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/event-definitions",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "productId",
+                "value": "",
+                "type": "query",
+                "description": "The productId."
+              }
+            ]
+          },
+          "docs": "Returns a collection of event definitions assigned to a particular product."
+        },
+        {
+          "info": {
+            "name": "Creates new event definition(s).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/event-definitions",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-user",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new event definition(s)."
+        },
+        {
+          "info": {
+            "name": "Updates an existing event definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/event-definitions/:id",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-user",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the event definition."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing event definition."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

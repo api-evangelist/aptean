@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aptean Integration Platform Consumers Events API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Publish event from a specific tenant.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/events",
+            "headers": [
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Publish event from a specific tenant."
+        },
+        {
+          "info": {
+            "name": "Get published events subscribed to by the specific tenant.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/events/consumer-events/:consumerId",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "consumerId",
+                "value": "",
+                "type": "path",
+                "description": "Tenant ID of the consumer."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Optional start date."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Optional end date."
+              }
+            ]
+          },
+          "docs": "Get published events subscribed to by the specific tenant."
+        },
+        {
+          "info": {
+            "name": "Get a specific event by its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/events/:eventId",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "Event ID."
+              }
+            ]
+          },
+          "docs": "Get a specific event by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

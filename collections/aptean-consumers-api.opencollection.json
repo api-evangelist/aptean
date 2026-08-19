@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aptean Integration Platform Consumers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consumers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all consumers tenants for the producer tenant.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/consumers",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "producerId",
+                "value": "",
+                "type": "query",
+                "description": "Producer tenant ID."
+              }
+            ]
+          },
+          "docs": "Gets all consumers tenants for the producer tenant."
+        },
+        {
+          "info": {
+            "name": "Create new consumer subscription for specific event type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/consumers",
+            "headers": [
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-user",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new consumer subscription for specific event type."
+        },
+        {
+          "info": {
+            "name": "Get a speific consumer subscription detail by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/consumers/:id",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of consumer subscription."
+              }
+            ]
+          },
+          "docs": "Get a speific consumer subscription detail by ID."
+        },
+        {
+          "info": {
+            "name": "Deletes a consumer.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/consumers/:id",
+            "headers": [
+              {
+                "name": "x-aptean-tenant",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-user",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-product",
+                "value": ""
+              },
+              {
+                "name": "x-aptean-apim",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the consumer."
+              }
+            ]
+          },
+          "docs": "Deletes a consumer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

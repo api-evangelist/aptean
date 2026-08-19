@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aptean Integration Platform Consumers PublicKeys API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PublicKeys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets primary and secondary public keys to validate payload signature if required.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/public-keys"
+          },
+          "docs": "Gets primary and secondary public keys to validate payload signature if required."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

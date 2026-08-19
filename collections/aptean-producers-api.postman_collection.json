@@ -1,0 +1,1115 @@
+{
+  "item": [
+    {
+      "id": "a4b5bd17-56ec-498c-b8da-6904a763fac9",
+      "name": "Producers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4b23b857-9a2b-4ded-ad2d-61024a98f061",
+          "name": "Create a new producer - only for internal use.",
+          "request": {
+            "name": "Create a new producer - only for internal use.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "producers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Tenant ID for authorization.",
+                "key": "x-aptean-tenant",
+                "value": "<uuid>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Product ID for authorization.",
+                "key": "x-aptean-product",
+                "value": "<uuid>"
+              },
+              {
+                "disabled": false,
+                "description": "User making the call if any.",
+                "key": "x-aptean-user",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "API key for authorization.",
+                "key": "x-aptean-apim",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"sourceTenant\": \"<string>\",\n  \"productVersion\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce46b9e2-9960-4233-b313-7ff9b478a37c",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"sourceTenant\": \"<string>\",\n  \"productVersion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 3094,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 5074,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ],\n  \"items\": [\n    {\n      \"id\": \"611fac8f-4ec3-6a1f-4d3e-67673fa4a893\",\n      \"createdBy\": \"string\",\n      \"createdTimestamp\": \"2005-02-28T19:22:42.241Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedTimestamp\": \"1978-07-23T11:46:46.379Z\",\n      \"name\": \"string\",\n      \"sourceTenant\": \"string\",\n      \"productId\": \"f12b0fd5-50e3-372c-1481-07e4c028f186\",\n      \"productVersion\": \"string\"\n    },\n    {\n      \"id\": \"bca65c90-066e-c38e-cd1b-c49241c7126b\",\n      \"createdBy\": \"string\",\n      \"createdTimestamp\": \"1961-02-17T14:05:48.310Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedTimestamp\": \"1996-03-17T08:00:45.835Z\",\n      \"name\": \"string\",\n      \"sourceTenant\": \"string\",\n      \"productId\": \"5937221d-b2cf-408b-1c79-59779b59b045\",\n      \"productVersion\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c9b4cdc-8a84-4964-a796-d44fb2fdbe91",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"sourceTenant\": \"<string>\",\n  \"productVersion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 1800,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 7556,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1d6ca76-4e15-457c-a6ec-21b4bc65a95b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"sourceTenant\": \"<string>\",\n  \"productVersion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4791,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e23f8f9-293d-4c52-b64b-baf924ad17b6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"sourceTenant\": \"<string>\",\n  \"productVersion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 1407,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 6258,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 4250,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 2268,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4640d280-da1c-450a-99a6-02eae83662c9",
+          "name": "Returns a list of producer tenants for a product.",
+          "request": {
+            "name": "Returns a list of producer tenants for a product.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "producers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "productId",
+                  "value": "<uuid>",
+                  "description": "(Required) Product ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Tenant ID for authorization.",
+                "key": "x-aptean-tenant",
+                "value": "<uuid>"
+              },
+              {
+                "disabled": false,
+                "description": "Product ID for authorization.",
+                "key": "x-aptean-product",
+                "value": "<uuid>"
+              },
+              {
+                "disabled": false,
+                "description": "API key for authorization.",
+                "key": "x-aptean-apim",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab30c66c-7a54-4ab3-9352-af0d7ecfb205",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 711,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 1660,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ],\n  \"items\": [\n    {\n      \"id\": \"de1ce2f1-ec09-bcfd-a4c9-e1b1c6514fd7\",\n      \"createdBy\": \"string\",\n      \"createdTimestamp\": \"1985-11-01T06:43:38.230Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedTimestamp\": \"2003-08-08T09:28:22.800Z\",\n      \"name\": \"string\",\n      \"sourceTenant\": \"string\",\n      \"productId\": \"f5f19cb4-5cd0-e890-e511-9ae58ac467cb\",\n      \"productVersion\": \"string\"\n    },\n    {\n      \"id\": \"3435db56-ef84-80ce-b9bd-fc5de0953117\",\n      \"createdBy\": \"string\",\n      \"createdTimestamp\": \"2015-06-08T05:30:38.057Z\",\n      \"modifiedBy\": \"string\",\n      \"modifiedTimestamp\": \"1980-05-08T20:43:29.470Z\",\n      \"name\": \"string\",\n      \"sourceTenant\": \"string\",\n      \"productId\": \"487f72f8-06e2-d35c-c568-3baf401ff857\",\n      \"productVersion\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec34b606-1f84-4fcf-b135-d48e1a5a6250",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 6143,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 1798,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ac755b7-8a71-4a92-99a5-e33e5213bc8e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4791,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b57ef5b-8470-459d-8a58-bae8d56a89d8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 4055,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 8528,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 3503,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 7587,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "807c2a97-6006-4601-b7ae-b74d3fe0e5ab",
+          "name": "Deletes a producer if there are no consumers listening to that producer.",
+          "request": {
+            "name": "Deletes a producer if there are no consumers listening to that producer.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "producers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) ID of the producer to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Tenant ID for authorization.",
+                "key": "x-aptean-tenant",
+                "value": "<uuid>"
+              },
+              {
+                "disabled": false,
+                "description": "User making the call if any.",
+                "key": "x-aptean-user",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Product ID for authorization.",
+                "key": "x-aptean-product",
+                "value": "<uuid>"
+              },
+              {
+                "disabled": false,
+                "description": "API key for authorization.",
+                "key": "x-aptean-apim",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "869cf2a6-f50b-4bb6-8ac8-ca9deb6f9a1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) ID of the producer to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 8461,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 7959,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ],\n  \"items\": [\n    {\n      \"result\": \"error\",\n      \"info\": \"string\"\n    },\n    {\n      \"result\": \"error\",\n      \"info\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a74a0d36-ca8d-4340-8b03-7e73e9887479",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) ID of the producer to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 6143,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 1798,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31db1781-458b-4ff3-bc29-073f74e9cf50",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) ID of the producer to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4791,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "790f92a7-8146-42be-8e1c-affbbc8d058c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "producers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) ID of the producer to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Tenant ID for authorization.",
+                    "key": "x-aptean-tenant",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "User making the call if any.",
+                    "key": "x-aptean-user",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Product ID for authorization.",
+                    "key": "x-aptean-product",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "API key for authorization.",
+                    "key": "x-aptean-apim",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 4055,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 8528,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 3503,\n      \"detail\": \"string\",\n      \"instance\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"status\": 7587,\n      \"detail\": \"string\",\n      \"instance\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e1eb4599-4590-411a-b284-adbb7d06c29a",
+    "name": "Aptean Integration Platform Consumers Producers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
