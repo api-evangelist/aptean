@@ -40,6 +40,15 @@ tags:
 - Supply Chain
 - Integration
 - Event-Driven
+- Webhook
+- Enterprise Software
+tags_raw:
+- Company
+- Manufacturing
+- ERP
+- Supply Chain
+- Integration
+- Event-Driven
 - Webhooks
 - Enterprise Software
 apis:
@@ -81,6 +90,8 @@ apis:
   humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
   baseURL: https://stg.integration-graph.apteansharedservices.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
