@@ -82,22 +82,6 @@ apis:
     url: errors/aptean-problem-types.yml
   - type: DataModel
     url: data-model/aptean-data-model.yml
-- aid: aptean:aptean-eventdefinitions-api
-  name: Aptean EventDefinitions API
-  description: The EventDefinitions API from Aptean — 2 operation(s) for eventdefinitions.
-  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
-  baseURL: https://stg.integration-graph.apteansharedservices.com
-  tags:
-  - EventDefinitions
-  properties:
-  - type: OpenAPI
-    url: openapi/aptean-eventdefinitions-api-openapi.yml
-  - type: Webhooks
-    url: asyncapi/aptean-events-webhooks.yml
-  - type: ErrorCatalog
-    url: errors/aptean-problem-types.yml
-  - type: DataModel
-    url: data-model/aptean-data-model.yml
 - aid: aptean:aptean-events-api
   name: Aptean Events API
   description: The Events API from Aptean — 3 operation(s) for events.
@@ -132,16 +116,32 @@ apis:
     url: errors/aptean-problem-types.yml
   - type: DataModel
     url: data-model/aptean-data-model.yml
-- aid: aptean:aptean-publickeys-api
-  name: Aptean PublicKeys API
-  description: The PublicKeys API from Aptean — 1 operation(s) for publickeys.
+- aid: aptean:aptean-event-definitions-api
+  name: Aptean Event Definitions API
+  description: The Event Definitions API from Aptean — 2 operation(s) for event definitions.
   humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
   baseURL: https://stg.integration-graph.apteansharedservices.com
   tags:
-  - PublicKeys
+  - Event Definitions
   properties:
   - type: OpenAPI
-    url: openapi/aptean-publickeys-api-openapi.yml
+    url: openapi/aptean-event-definitions-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/aptean-events-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/aptean-problem-types.yml
+  - type: DataModel
+    url: data-model/aptean-data-model.yml
+- aid: aptean:aptean-public-keys-api
+  name: Aptean Public Keys API
+  description: The Public Keys API from Aptean — 1 operation(s) for public keys.
+  humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
+  baseURL: https://stg.integration-graph.apteansharedservices.com
+  tags:
+  - Public Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/aptean-public-keys-api-openapi.yml
   - type: Webhooks
     url: asyncapi/aptean-events-webhooks.yml
   - type: ErrorCatalog
