@@ -1,0 +1,29 @@
+# Front Door AI Index — aptean — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: aptean
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.aptean.com
+  final_host: www.aptean.com
+  ownership: own
+  owner: aptean
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 25
+  host_score: 25
+  density: 10.65
+  words: 2348
+  tiers:
+    agentic: 0
+    core: 25
+    model: 0
+  ambiguous: 4
+  top_terms:
+    AI: 24
+    predictive: 2
+    artificial intelligence: 1
+    automation: 1
+    intelligence: 1

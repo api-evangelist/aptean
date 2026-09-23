@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Aptean Integration Platform Consumers Events API
+  title: Aptean Integration Platform Events API
   version: '1.0'
 security:
 - Bearer: []
@@ -11,7 +11,7 @@ paths:
     post:
       tags:
       - Events
-      summary: Publish event from a specific tenant.
+      summary: Publish event from a specific tenant
       parameters:
       - name: x-aptean-product
         in: header
@@ -50,13 +50,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
             application/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
             text/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
         '400':
           description: Bad Request
           content:
@@ -93,11 +93,13 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+      operationId: postV1Events
+      x-operation-id-source: derived
   /v1/events/consumer-events/{consumerId}:
     get:
       tags:
       - Events
-      summary: Get published events subscribed to by the specific tenant.
+      summary: Get published events subscribed to by the specific tenant
       parameters:
       - name: consumerId
         in: path
@@ -140,13 +142,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
             application/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
             text/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
         '400':
           description: Bad Request
           content:
@@ -171,11 +173,13 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+      operationId: getV1EventsConsumerEventsByConsumerId
+      x-operation-id-source: derived
   /v1/events/{eventId}:
     get:
       tags:
       - Events
-      summary: Get a specific event by its ID.
+      summary: Get a specific event by its ID
       parameters:
       - name: eventId
         in: path
@@ -206,13 +210,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
             application/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
             text/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
         '400':
           description: Bad Request
           content:
@@ -237,134 +241,10 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+      operationId: getV1EventsByEventId
+      x-operation-id-source: derived
 components:
   schemas:
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
-      type: object
-      properties:
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-          nullable: true
-      additionalProperties: false
-      description: Warning AIP response.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
-      type: object
-      properties:
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-          nullable: true
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of errors for executed action.
-          nullable: true
-      additionalProperties: false
-      description: Error AIP response.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Event]
-    : type: object
-      properties:
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-          nullable: true
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
-          description: The collection of items.
-          nullable: true
-      additionalProperties: false
-      description: "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
-    Microsoft.AspNetCore.Mvc.ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        status:
-          type: integer
-          format: int32
-          nullable: true
-        detail:
-          type: string
-          nullable: true
-        instance:
-          type: string
-          nullable: true
-      additionalProperties: {}
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Event:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Gets or sets the unique identifier.
-          format: uuid
-        createdBy:
-          type: string
-          description: Gets the created by property.
-          nullable: true
-        createdTimestamp:
-          type: string
-          description: Gets or sets timestamp that indicates when this document got created.
-          format: date-time
-        modifiedBy:
-          type: string
-          description: Gets the modified by property.
-          nullable: true
-        modifiedTimestamp:
-          type: string
-          description: Gets or sets timestamp that indicates when this document got last modified.
-          format: date-time
-          nullable: true
-        payload:
-          type: object
-          description: The actual event Payload.
-        correlationId:
-          type: string
-          description: CorrelationId from the processing pipeline.
-          nullable: true
-        eventDefinitionId:
-          type: string
-          description: The event definition id of the event.
-          format: uuid
-        eventDefinitionType:
-          type: string
-          description: The event definition type.
-          nullable: true
-        owner:
-          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner'
-        sourceTenant:
-          type: string
-          description: The source tenant.
-          nullable: true
-        sentTimestamp:
-          type: string
-          description: Indicates when the event was sent.
-          format: date-time
-          nullable: true
-        failedTimestamp:
-          type: string
-          description: Indicates when the event was failed.
-          format: date-time
-          nullable: true
-        failureMessage:
-          type: string
-          description: Shows the failure message of this event.
-          nullable: true
-      additionalProperties: false
-      description: Representation of the Event model.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner:
       type: object
       properties:
@@ -374,6 +254,31 @@ components:
           format: uuid
       additionalProperties: false
       description: Representation of the owner model.
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
     Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest:
       required:
       - eventDefinitionType
@@ -388,6 +293,128 @@ components:
           description: Gets or sets the payload.
       additionalProperties: false
       description: Publish Event Request.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+      additionalProperties: false
+      description: Warning AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Gets or sets the unique identifier.
+          format: uuid
+        createdBy:
+          type:
+          - string
+          - 'null'
+          description: Gets the created by property.
+        createdTimestamp:
+          type: string
+          description: Gets or sets timestamp that indicates when this document got created.
+          format: date-time
+        modifiedBy:
+          type:
+          - string
+          - 'null'
+          description: Gets the modified by property.
+        modifiedTimestamp:
+          type:
+          - string
+          - 'null'
+          description: Gets or sets timestamp that indicates when this document got last modified.
+          format: date-time
+        payload:
+          type: object
+          description: The actual event Payload.
+        correlationId:
+          type:
+          - string
+          - 'null'
+          description: CorrelationId from the processing pipeline.
+        eventDefinitionId:
+          type: string
+          description: The event definition id of the event.
+          format: uuid
+        eventDefinitionType:
+          type:
+          - string
+          - 'null'
+          description: The event definition type.
+        owner:
+          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner'
+        sourceTenant:
+          type:
+          - string
+          - 'null'
+          description: The source tenant.
+        sentTimestamp:
+          type:
+          - string
+          - 'null'
+          description: Indicates when the event was sent.
+          format: date-time
+        failedTimestamp:
+          type:
+          - string
+          - 'null'
+          description: Indicates when the event was failed.
+          format: date-time
+        failureMessage:
+          type:
+          - string
+          - 'null'
+          description: Shows the failure message of this event.
+      additionalProperties: false
+      description: Representation of the Event model.
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of errors for executed action.
+      additionalProperties: false
+      description: Error AIP response.
   securitySchemes:
     Bearer:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Aptean Integration Platform Consumers Producers API
+  title: Aptean Integration Platform Producers API
   version: '1.0'
 security:
 - Bearer: []
@@ -11,7 +11,7 @@ paths:
     post:
       tags:
       - Producers
-      summary: Create a new producer - only for internal use.
+      summary: Create a new producer - only for internal use
       parameters:
       - name: x-aptean-tenant
         in: header
@@ -55,13 +55,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
             application/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
             text/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
         '400':
           description: Bad Request
           content:
@@ -98,10 +98,12 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+      operationId: postV1Producers
+      x-operation-id-source: derived
     get:
       tags:
       - Producers
-      summary: Returns a list of producer tenants for a product.
+      summary: Returns a list of producer tenants for a product
       parameters:
       - name: productId
         in: query
@@ -133,13 +135,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
             application/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
             text/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
         '400':
           description: Bad Request
           content:
@@ -176,11 +178,13 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+      operationId: getV1Producers
+      x-operation-id-source: derived
   /v1/producers/{id}:
     delete:
       tags:
       - Producers
-      summary: Deletes a producer if there are no consumers listening to that producer.
+      summary: Deletes a producer if there are no consumers listening to that producer
       parameters:
       - name: x-aptean-tenant
         in: header
@@ -218,13 +222,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
             application/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
             text/json:
               schema:
-                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]'
+                $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
         '400':
           description: Bad Request
           content:
@@ -261,8 +265,113 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+      operationId: deleteV1ProducersById
+      x-operation-id-source: derived
 components:
   schemas:
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult'
+        info:
+          type:
+          - string
+          - 'null'
+          description: Provides info about the delete action.
+      additionalProperties: false
+      description: Resource to describe the delete action.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+      additionalProperties: false
+      description: Warning AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Producer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Gets or sets the unique identifier.
+          format: uuid
+        createdBy:
+          type:
+          - string
+          - 'null'
+          description: Gets the created by property.
+        createdTimestamp:
+          type: string
+          description: Gets or sets timestamp that indicates when this document got created.
+          format: date-time
+        modifiedBy:
+          type:
+          - string
+          - 'null'
+          description: Gets the modified by property.
+        modifiedTimestamp:
+          type:
+          - string
+          - 'null'
+          description: Gets or sets timestamp that indicates when this document got last modified.
+          format: date-time
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name of the producer.
+        sourceTenant:
+          type:
+          - string
+          - 'null'
+          description: Source tenant of this producer.
+        productId:
+          type: string
+          description: Product id value.
+          format: uuid
+        productVersion:
+          type:
+          - string
+          - 'null'
+          description: Product version value.
+      additionalProperties: false
+      description: Resource that represents model to work with a producer.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
+      enum:
+      - success
+      - error
+      type: string
+      description: Describes the global result.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest:
       required:
       - name
@@ -273,157 +382,79 @@ components:
           type: string
           description: Gets the name value.
         sourceTenant:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Gets the source tenant.
-          nullable: true
         productVersion:
           maxLength: 20
-          type: string
+          type:
+          - string
+          - 'null'
           description: Product version value.
-          nullable: true
       additionalProperties: false
       description: New producer request.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
-      type: object
-      properties:
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-          nullable: true
-      additionalProperties: false
-      description: Warning AIP response.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse]
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer
     : type: object
       properties:
         warnings:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
           description: Gets or sets the collection of warnings for executed action.
-          nullable: true
         items:
-          type: array
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
           description: The collection of items.
-          nullable: true
       additionalProperties: false
-      description: "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
     Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
       type: object
       properties:
         warnings:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
           description: Gets or sets the collection of warnings for executed action.
-          nullable: true
         errors:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
           description: Gets or sets the collection of errors for executed action.
-          nullable: true
       additionalProperties: false
       description: Error AIP response.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse:
-      type: object
-      properties:
-        result:
-          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult'
-        info:
-          type: string
-          description: Provides info about the delete action.
-          nullable: true
-      additionalProperties: false
-      description: Resource to describe the delete action.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
-      enum:
-      - success
-      - error
-      type: string
-      description: Describes the global result.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Producer]
-    : type: object
-      properties:
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-          nullable: true
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
-          description: The collection of items.
-          nullable: true
-      additionalProperties: false
-      description: "Success typed AIP response.\r\n<typeparam name=\"TItem\">Type of the item.</typeparam>"
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Producer:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Gets or sets the unique identifier.
-          format: uuid
-        createdBy:
-          type: string
-          description: Gets the created by property.
-          nullable: true
-        createdTimestamp:
-          type: string
-          description: Gets or sets timestamp that indicates when this document got created.
-          format: date-time
-        modifiedBy:
-          type: string
-          description: Gets the modified by property.
-          nullable: true
-        modifiedTimestamp:
-          type: string
-          description: Gets or sets timestamp that indicates when this document got last modified.
-          format: date-time
-          nullable: true
-        name:
-          type: string
-          description: The name of the producer.
-          nullable: true
-        sourceTenant:
-          type: string
-          description: Source tenant of this producer.
-          nullable: true
-        productId:
-          type: string
-          description: Product id value.
-          format: uuid
-        productVersion:
-          type: string
-          description: Product version value.
-          nullable: true
-      additionalProperties: false
-      description: Resource that represents model to work with a producer.
-    Microsoft.AspNetCore.Mvc.ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        status:
-          type: integer
-          format: int32
-          nullable: true
-        detail:
-          type: string
-          nullable: true
-        instance:
-          type: string
-          nullable: true
-      additionalProperties: {}
   securitySchemes:
     Bearer:
       type: http

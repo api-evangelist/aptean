@@ -1,11 +1,7 @@
 {
   "provider": "aptean",
   "sources": [
-    "aptean-consumers-api-openapi.yml",
-    "aptean-eventdefinitions-api-openapi.yml",
-    "aptean-events-api-openapi.yml",
-    "aptean-producers-api-openapi.yml",
-    "aptean-publickeys-api-openapi.yml"
+    "_original/aptean-integration-platform-openapi-original.json"
   ],
   "outputs": [
     "aptean-consumers-api-openapi.yml",
@@ -14,9 +10,27 @@
     "aptean-producers-api-openapi.yml",
     "aptean-publickeys-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "aptean-integration-platform-openapi-original.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0; renamed 6 component key(s) illegal in 3.x (e.g. Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse`1[Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer])",
+    "aptean-integration-platform-openapi-original.json: declared missing tag: Consumers",
+    "aptean-integration-platform-openapi-original.json: declared missing tag: EventDefinitions",
+    "aptean-integration-platform-openapi-original.json: declared missing tag: Events",
+    "aptean-integration-platform-openapi-original.json: declared missing tag: Producers",
+    "aptean-integration-platform-openapi-original.json: declared missing tag: PublicKeys",
+    "superseded outputs removed: aptean-event-definitions-api-openapi.yml, aptean-public-keys-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 5 total)"
+  ],
+  "skipped": [
+    "aptean-consumers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aptean-event-definitions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aptean-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aptean-producers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aptean-public-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
