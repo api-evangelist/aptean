@@ -41,27 +41,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_System.String:
-      type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-        items:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: The collection of items.
-      additionalProperties: false
-      description: 'Success typed AIP response.
-
-        <typeparam name="TItem">Type of the item.</typeparam>'
     Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
       type: object
       properties:
@@ -106,6 +85,27 @@ components:
           - string
           - 'null'
       additionalProperties: {}
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_System.String:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
   securitySchemes:
     Bearer:
       type: http

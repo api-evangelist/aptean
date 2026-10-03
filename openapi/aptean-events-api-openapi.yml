@@ -245,32 +245,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
-      type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-      additionalProperties: false
-      description: Warning AIP response.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest:
-      required:
-      - eventDefinitionType
-      type: object
-      properties:
-        eventDefinitionType:
-          minLength: 1
-          type: string
-          description: Gets or sets the event definition type.
-        payload:
-          type: object
-          description: Gets or sets the payload.
-      additionalProperties: false
-      description: Publish Event Request.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
       type: object
       properties:
@@ -290,6 +264,27 @@ components:
           description: Gets or sets the collection of errors for executed action.
       additionalProperties: false
       description: Error AIP response.
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
     Aptean.ATG.IntegrationPlatform.Api.Resources.Event:
       type: object
       properties:
@@ -360,6 +355,18 @@ components:
           description: Shows the failure message of this event.
       additionalProperties: false
       description: Representation of the Event model.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+      additionalProperties: false
+      description: Warning AIP response.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Base.Owner:
       type: object
       properties:
@@ -369,27 +376,6 @@ components:
           format: uuid
       additionalProperties: false
       description: Representation of the owner model.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Event
-    : type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-        items:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Event'
-          description: The collection of items.
-      additionalProperties: false
-      description: 'Success typed AIP response.
-
-        <typeparam name="TItem">Type of the item.</typeparam>'
     Microsoft.AspNetCore.Mvc.ProblemDetails:
       type: object
       properties:
@@ -415,6 +401,20 @@ components:
           - string
           - 'null'
       additionalProperties: {}
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.PublishEventRequest:
+      required:
+      - eventDefinitionType
+      type: object
+      properties:
+        eventDefinitionType:
+          minLength: 1
+          type: string
+          description: Gets or sets the event definition type.
+        payload:
+          type: object
+          description: Gets or sets the payload.
+      additionalProperties: false
+      description: Publish Event Request.
   securitySchemes:
     Bearer:
       type: http
