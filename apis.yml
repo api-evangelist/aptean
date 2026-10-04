@@ -122,6 +122,8 @@ apis:
   humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
   baseURL: https://stg.integration-graph.apteansharedservices.com
   tags:
+  - EventDefinitions
+  tags_raw:
   - Event Definitions
   properties:
   - type: OpenAPI
@@ -138,6 +140,8 @@ apis:
   humanURL: https://stg.integration-graph.apteansharedservices.com/swagger/index.html
   baseURL: https://stg.integration-graph.apteansharedservices.com
   tags:
+  - PublicKeys
+  tags_raw:
   - Public Keys
   properties:
   - type: OpenAPI
@@ -154,6 +158,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/aptean-capability-edges.yml
+  name: Aptean Business Capability Map
 - type: Overlay
   url: overlays/aptean-integration-platform-overlay.yaml
 - type: AgenticAccess
