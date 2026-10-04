@@ -269,70 +269,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
-      type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-        errors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of errors for executed action.
-      additionalProperties: false
-      description: Error AIP response.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
-      type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-      additionalProperties: false
-      description: Warning AIP response.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse
-    : type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-        items:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
-          description: The collection of items.
-      additionalProperties: false
-      description: 'Success typed AIP response.
-
-        <typeparam name="TItem">Type of the item.</typeparam>'
-    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse:
-      type: object
-      properties:
-        result:
-          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult'
-        info:
-          type:
-          - string
-          - 'null'
-          description: Provides info about the delete action.
-      additionalProperties: false
-      description: Resource to describe the delete action.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Producer:
       type: object
       properties:
@@ -381,36 +317,8 @@ components:
           description: Product version value.
       additionalProperties: false
       description: Resource that represents model to work with a producer.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
-      enum:
-      - success
-      - error
-      type: string
-      description: Describes the global result.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest:
-      required:
-      - name
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
       type: object
-      properties:
-        name:
-          minLength: 1
-          type: string
-          description: Gets the name value.
-        sourceTenant:
-          type:
-          - string
-          - 'null'
-          description: Gets the source tenant.
-        productVersion:
-          maxLength: 20
-          type:
-          - string
-          - 'null'
-          description: Product version value.
-      additionalProperties: false
-      description: New producer request.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer
-    : type: object
       properties:
         warnings:
           type:
@@ -419,17 +327,15 @@ components:
           items:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
           description: Gets or sets the collection of warnings for executed action.
-        items:
+        errors:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
-          description: The collection of items.
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of errors for executed action.
       additionalProperties: false
-      description: 'Success typed AIP response.
-
-        <typeparam name="TItem">Type of the item.</typeparam>'
+      description: Error AIP response.
     Microsoft.AspNetCore.Mvc.ProblemDetails:
       type: object
       properties:
@@ -455,6 +361,100 @@ components:
           - string
           - 'null'
       additionalProperties: {}
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Producer
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Producer'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult'
+        info:
+          type:
+          - string
+          - 'null'
+          description: Provides info about the delete action.
+      additionalProperties: false
+      description: Resource to describe the delete action.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewProducerRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          minLength: 1
+          type: string
+          description: Gets the name value.
+        sourceTenant:
+          type:
+          - string
+          - 'null'
+          description: Gets the source tenant.
+        productVersion:
+          maxLength: 20
+          type:
+          - string
+          - 'null'
+          description: Product version value.
+      additionalProperties: false
+      description: New producer request.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+      additionalProperties: false
+      description: Warning AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
+      enum:
+      - success
+      - error
+      type: string
+      description: Describes the global result.
   securitySchemes:
     Bearer:
       type: http

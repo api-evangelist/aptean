@@ -280,29 +280,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewEventDefinitionsRequest:
-      required:
-      - eventDefinitions
-      - productId
-      type: object
-      properties:
-        productId:
-          type: string
-          description: Gets the product id.
-          format: uuid
-        productVersion:
-          maxLength: 20
-          type:
-          - string
-          - 'null'
-          description: Product version.
-        eventDefinitions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.EventDefinitionRequest'
-          description: The event definitions to register.
-      additionalProperties: false
-      description: New event definition request.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
       type: object
       properties:
@@ -322,6 +299,21 @@ components:
           description: Gets or sets the collection of errors for executed action.
       additionalProperties: false
       description: Error AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings:
+      required:
+      - retryable
+      type: object
+      properties:
+        timeToLive:
+          type: string
+          description: Gets or sets ttl for the event.
+          format: duration
+          example: 0.00:00:00
+        retryable:
+          type: boolean
+          description: Gets or sets a value indicating whether an event is retryable.
+      additionalProperties: false
+      description: EventDefinitionSettings Specification to create.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.EventDefinitionRequest:
       required:
       - name
@@ -354,6 +346,94 @@ components:
           $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings'
       additionalProperties: false
       description: EventDefinition Specification to create.
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.UpdateEventDefinitionRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          minLength: 1
+          type: string
+          description: Gets the name.
+        description:
+          type:
+          - string
+          - 'null'
+          description: Gets the description.
+        payloadSchema:
+          type: object
+          description: Gets the payload schema.
+      additionalProperties: false
+      description: Update event definition request.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.NewEventDefinitionsRequest:
+      required:
+      - eventDefinitions
+      - productId
+      type: object
+      properties:
+        productId:
+          type: string
+          description: Gets the product id.
+          format: uuid
+        productVersion:
+          maxLength: 20
+          type:
+          - string
+          - 'null'
+          description: Product version.
+        eventDefinitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.EventDefinitionRequest'
+          description: The event definitions to register.
+      additionalProperties: false
+      description: New event definition request.
     Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
       type: object
       properties:
@@ -366,21 +446,6 @@ components:
           description: Gets or sets the collection of warnings for executed action.
       additionalProperties: false
       description: Warning AIP response.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings:
-      required:
-      - retryable
-      type: object
-      properties:
-        timeToLive:
-          type: string
-          description: Gets or sets ttl for the event.
-          format: duration
-          example: 0.00:00:00
-        retryable:
-          type: boolean
-          description: Gets or sets a value indicating whether an event is retryable.
-      additionalProperties: false
-      description: EventDefinitionSettings Specification to create.
     Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition:
       type: object
       properties:
@@ -439,71 +504,6 @@ components:
           $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinitionSettings'
       additionalProperties: false
       description: Representation of the Event definition.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition
-    : type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-        items:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.EventDefinition'
-          description: The collection of items.
-      additionalProperties: false
-      description: 'Success typed AIP response.
-
-        <typeparam name="TItem">Type of the item.</typeparam>'
-    Microsoft.AspNetCore.Mvc.ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Requests.UpdateEventDefinitionRequest:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          minLength: 1
-          type: string
-          description: Gets the name.
-        description:
-          type:
-          - string
-          - 'null'
-          description: Gets the description.
-        payloadSchema:
-          type: object
-          description: Gets the payload schema.
-      additionalProperties: false
-      description: Update event definition request.
   securitySchemes:
     Bearer:
       type: http

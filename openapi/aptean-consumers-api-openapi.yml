@@ -359,25 +359,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
-      type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-        errors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of errors for executed action.
-      additionalProperties: false
-      description: Error AIP response.
     Aptean.ATG.IntegrationPlatform.Api.Resources.SubscribedEvent:
       required:
       - attempts
@@ -419,6 +400,46 @@ components:
           description: Status reason of provisioning.
       additionalProperties: false
       description: Resource that represents subscribed event.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipErrorResponse:
+      type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of errors for executed action.
+      additionalProperties: false
+      description: Error AIP response.
+    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer
+    : type: object
+      properties:
+        warnings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Gets or sets the collection of warnings for executed action.
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer'
+          description: The collection of items.
+      additionalProperties: false
+      description: 'Success typed AIP response.
+
+        <typeparam name="TItem">Type of the item.</typeparam>'
     Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer:
       required:
       - subscribedEvents
@@ -524,16 +545,6 @@ components:
           description: Gets or sets the contact email.
       additionalProperties: false
       description: New consumer request.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Base.ProvisioningStatus:
-      enum:
-      - pending
-      - active
-      - failed
-      - pendingRemoval
-      - removalFailed
-      - removed
-      type: string
-      description: Indicates the status of provisioning.
     Microsoft.AspNetCore.Mvc.ProblemDetails:
       type: object
       properties:
@@ -559,18 +570,6 @@ components:
           - string
           - 'null'
       additionalProperties: {}
-    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
-      type: object
-      properties:
-        warnings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Gets or sets the collection of warnings for executed action.
-      additionalProperties: false
-      description: Warning AIP response.
     ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse
     : type: object
       properties:
@@ -592,6 +591,16 @@ components:
       description: 'Success typed AIP response.
 
         <typeparam name="TItem">Type of the item.</typeparam>'
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Base.ProvisioningStatus:
+      enum:
+      - pending
+      - active
+      - failed
+      - pendingRemoval
+      - removalFailed
+      - removed
+      type: string
+      description: Indicates the status of provisioning.
     Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.DeleteResponse:
       type: object
       properties:
@@ -604,14 +613,8 @@ components:
           description: Provides info about the delete action.
       additionalProperties: false
       description: Resource to describe the delete action.
-    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
-      enum:
-      - success
-      - error
-      type: string
-      description: Describes the global result.
-    ? Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipSuccessResponse_1_Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer
-    : type: object
+    Aptean.ATG.IntegrationPlatform.Api.Resources.Responses.AipWarningResponse:
+      type: object
       properties:
         warnings:
           type:
@@ -620,17 +623,14 @@ components:
           items:
             $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
           description: Gets or sets the collection of warnings for executed action.
-        items:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Aptean.ATG.IntegrationPlatform.Api.Resources.Consumer'
-          description: The collection of items.
       additionalProperties: false
-      description: 'Success typed AIP response.
-
-        <typeparam name="TItem">Type of the item.</typeparam>'
+      description: Warning AIP response.
+    Aptean.ATG.IntegrationPlatform.Api.Resources.GenericResponses.ResponseResult:
+      enum:
+      - success
+      - error
+      type: string
+      description: Describes the global result.
   securitySchemes:
     Bearer:
       type: http
