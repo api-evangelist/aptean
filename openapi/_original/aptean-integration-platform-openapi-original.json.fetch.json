@@ -1,0 +1,12 @@
+{
+ "url": "https://stg.integration-graph.apteansharedservices.com/swagger/v1/swagger.json",
+ "requested_url": "https://stg.integration-graph.apteansharedservices.com/swagger/v1/swagger.json",
+ "status": 200,
+ "content_type": "application/json;charset=utf-8",
+ "bytes": 90057,
+ "sha256": "f8aa8bf11149a259718753c43db17cb1c4382a3d969911946d170586e7ea8097",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
