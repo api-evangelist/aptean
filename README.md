@@ -64,6 +64,133 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Aptean is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. Sector: manufacturing. This profile is a lead awaiting the enrichment pipeline.
+Aptean is a global provider of industry-specific, AI-powered enterprise software — ERP, CRM, supply chain and compliance solutions — for manufacturing, distribution, food & beverage, transportation and other complex industries. Headquartered in Alpharetta, Georgia and backed by Insight Partners, Aptean serves roughly 5,000 customers worldwide. Its developer-facing surface is the Aptean Integration Platform (AIP), an event/webhook integration API where products publish events against event definitions and consumer tenants subscribe to receive them, secured with Bearer JWT and APIM subscription headers.
 
-Backed by: insight-partners — https://www.aptean.com/en-US/
+**Areas:** Company · Manufacturing · ERP · Supply Chain · Integration · Event-Driven · Webhook · Enterprise Software
+
+## Aptean on APIs.io
+
+Everything profiled for Aptean is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aptean/](https://apis.io/providers/aptean/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Aptean Consumers API](https://apis.io/apis/aptean/aptean-consumers-api/) — The Consumers API from Aptean — 2 operation(s) for consumers.
+- [Aptean Events API](https://apis.io/apis/aptean/aptean-events-api/) — The Events API from Aptean — 3 operation(s) for events.
+- [Aptean Producers API](https://apis.io/apis/aptean/aptean-producers-api/) — The Producers API from Aptean — 2 operation(s) for producers.
+- [Aptean Event Definitions API](https://apis.io/apis/aptean/aptean-event-definitions-api/) — The Event Definitions API from Aptean — 2 operation(s) for event definitions.
+- [Aptean Public Keys API](https://apis.io/apis/aptean/aptean-public-keys-api/) — The Public Keys API from Aptean — 1 operation(s) for public keys.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Aptean Events Webhooks](https://apis.io/asyncapis/aptean/aptean-events-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [aptean-integration-platform](https://apis.io/servers/aptean/aptean-integration-platform/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Aptean Agentic Access](https://apis.io/agentic-access/aptean/aptean-agentic-access/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Aptean Integration Platform Consumers API](https://apis.io/collections/aptean/open-aptean-consumers-api/)
+- [Aptean Integration Platform Consumers EventDefinitions API](https://apis.io/collections/aptean/open-aptean-eventdefinitions-api/)
+- [Aptean Integration Platform Consumers Events API](https://apis.io/collections/aptean/open-aptean-events-api/)
+- [Aptean Integration Platform Consumers Producers API](https://apis.io/collections/aptean/open-aptean-producers-api/)
+- [Aptean Integration Platform Consumers PublicKeys API](https://apis.io/collections/aptean/open-aptean-publickeys-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Aptean Integration Platform Overlay](https://apis.io/overlays/aptean/aptean-integration-platform-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aptean Authentication](https://apis.io/security/aptean/aptean-authentication/)
+- [Aptean Domain Security](https://apis.io/security/aptean/aptean-domain-security/)
+- [Aptean Trust Center](https://apis.io/security/aptean/aptean-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.aptean.com/en-US/)
+- [Documentation](https://github.com/Aptean/integration-services)
+- [API reference](https://stg.integration-graph.apteansharedservices.com/swagger/index.html)
+- [Support](https://www.aptean.com/en-US/contact-us)
+- [Blog](https://www.aptean.com/en-US/insights)
+- [Compliance](https://trust.aptean.com/)
+- [Terms of service](https://www.aptean.com/en-US/terms-of-use)
+- [Privacy policy](https://www.aptean.com/en-US/privacy-statement)
+- [GitHub](https://github.com/Aptean)
+
+## API Evangelist rating
+
+**Kin Score 40.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 47.7 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 36.8 |
+
+**Agent readiness 29.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aptean/](https://apis.io/providers/aptean/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Aptean: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aptean/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
